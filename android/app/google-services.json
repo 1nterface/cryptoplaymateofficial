@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "371726818705",
+    "project_id": "crypto-playmate-web",
+    "storage_bucket": "crypto-playmate-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371726818705:android:43d70c97b8d32ab0f30e30",
+        "android_client_info": {
+          "package_name": "web.app.cryptoplaymateofficial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371726818705-c3vf8mddds8h3m8ql761jlhee0ovv7rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpNalAP49r3izgpC5JHM3ODSORjQ2_qx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371726818705-c3vf8mddds8h3m8ql761jlhee0ovv7rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371726818705:android:3d113b247d762880f30e30",
+        "android_client_info": {
+          "package_name": "web.cryptoplaymates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371726818705-c3vf8mddds8h3m8ql761jlhee0ovv7rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpNalAP49r3izgpC5JHM3ODSORjQ2_qx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371726818705-c3vf8mddds8h3m8ql761jlhee0ovv7rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
