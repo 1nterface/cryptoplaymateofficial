@@ -232,13 +232,7 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-                setState(() {
-                  signOut();
-
-                  //comprasNotificaciones(context);
-                  //comprasNotificaciones2(context);
-                  //sesion = true;
-                });
+                signOut();
 
               },
               child: Text(
