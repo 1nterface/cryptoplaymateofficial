@@ -232,7 +232,7 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-
+                setState(() {
                   signOut();
 
                   //comprasNotificaciones(context);
