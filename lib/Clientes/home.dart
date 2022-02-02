@@ -96,7 +96,7 @@ class homeState extends State<home> {
     });
   }
 
-  void sinSesion2(){
+  void registro(){
     final FirebaseAuth auth = FirebaseAuth.instance;
 
     if(FirebaseAuth.instance.currentUser?.uid == null){
@@ -146,7 +146,7 @@ class homeState extends State<home> {
     }
 
   }
-  void registro(){
+  void sinSesion2(){
     final FirebaseAuth auth = FirebaseAuth.instance;
 
     if(FirebaseAuth.instance.currentUser?.uid == null){
