@@ -96,6 +96,20 @@ class homeState extends State<home> {
     });
   }
 
+  Future _startUploadTask() async {
+    AuthenticationHelper()
+        .signUp(
+        email: _emailController.text, password: _passwordController.text)
+        .then((result) {
+      if (result == null) {
+        Navigator.pop(context);
+        Navigator.pop(context);
+      } else {
+        print("");
+      }
+    });
+  }
+
   void registro(){
     final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -103,14 +117,14 @@ class homeState extends State<home> {
       // not logged
       Alert(
           context: context,
-          title: "Inicio de sesion",
+          title: "Sign Up",
           content: Column(
             children: <Widget>[
               TextFormField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   icon: Icon(Icons.account_circle, color: Color(0xFF815FD5)),
-                  labelText: 'Correo',
+                  labelText: 'Email',
                 ),
               ),
               TextFormField(
@@ -119,7 +133,7 @@ class homeState extends State<home> {
                 obscureText: true,
                 decoration: InputDecoration(
                   icon: Icon(Icons.lock, color: Color(0xFF815FD5)),
-                  labelText: 'Contrasena',
+                  labelText: 'Password',
                 ),
               ),
             ],
@@ -128,12 +142,13 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-                registro();
-                //Navigator.of(context).pushNamed('/registro');
+                //sinSesion2();
+                Navigator.of(context).pop();
+                Navigator.of(context).pop();
 
               },
               child: Text(
-                "Registrarme",
+                "Sign Up",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               color: Color(0xFF815FD5),
@@ -153,14 +168,14 @@ class homeState extends State<home> {
       // not logged
       Alert(
           context: context,
-          title: "Register",
+          title: "Sign In",
           content: Column(
             children: <Widget>[
               TextFormField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   icon: Icon(Icons.account_circle, color: Colors.pinkAccent),
-                  labelText: 'Correo',
+                  labelText: 'Email',
                 ),
               ),
               TextFormField(
@@ -169,7 +184,7 @@ class homeState extends State<home> {
                 obscureText: true,
                 decoration: InputDecoration(
                   icon: Icon(Icons.lock, color: Colors.pinkAccent),
-                  labelText: 'Contrasena',
+                  labelText: 'Password',
                 ),
               ),
             ],
@@ -186,7 +201,7 @@ class homeState extends State<home> {
 
               },
               child: Text(
-                "Save",
+                "Sign In",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               color: Colors.pinkAccent,
@@ -195,11 +210,12 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
+                registro();
                 //Navigator.of(context).pushNamed('/registro');
 
               },
               child: Text(
-                "Registrarme",
+                "Sign Up",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               color: Colors.pinkAccent,
