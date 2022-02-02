@@ -109,6 +109,56 @@ class homeState extends State<home> {
               TextFormField(
                 controller: _emailController,
                 decoration: InputDecoration(
+                  icon: Icon(Icons.account_circle, color: Color(0xFF815FD5)),
+                  labelText: 'Correo',
+                ),
+              ),
+              TextFormField(
+                controller: _passwordController,
+
+                obscureText: true,
+                decoration: InputDecoration(
+                  icon: Icon(Icons.lock, color: Color(0xFF815FD5)),
+                  labelText: 'Contrasena',
+                ),
+              ),
+            ],
+          ),
+          buttons: [
+            DialogButton(
+              onPressed: () {
+
+                registro();
+                //Navigator.of(context).pushNamed('/registro');
+
+              },
+              child: Text(
+                "Registrarme",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              color: Color(0xFF815FD5),
+            )
+          ]).show();
+    } else {
+      // logged
+      Navigator.of(context).pop();
+
+    }
+
+  }
+  void registro(){
+    final FirebaseAuth auth = FirebaseAuth.instance;
+
+    if(FirebaseAuth.instance.currentUser?.uid == null){
+      // not logged
+      Alert(
+          context: context,
+          title: "Register",
+          content: Column(
+            children: <Widget>[
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
                   icon: Icon(Icons.account_circle, color: Colors.pinkAccent),
                   labelText: 'Correo',
                 ),
@@ -128,10 +178,6 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-                initState();
-
-                inicioSesion();
-
                 setState(() {
                   //comprasNotificaciones(context);
                   //comprasNotificaciones2(context);
@@ -140,23 +186,23 @@ class homeState extends State<home> {
 
               },
               child: Text(
-                "Entrar",
+                "Save",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
-              color: Colors.lightBlueAccent,
+              color: Colors.pinkAccent,
 
             ),
             DialogButton(
               onPressed: () {
 
-                Navigator.of(context).pushNamed('/registro');
+                //Navigator.of(context).pushNamed('/registro');
 
               },
               child: Text(
                 "Registrarme",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
-              color: Colors.lightBlueAccent,
+              color: Colors.pinkAccent,
             )
           ]).show();
     } else {
