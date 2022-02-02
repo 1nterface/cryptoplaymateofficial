@@ -142,6 +142,7 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
+                _startUploadTask();
                 //sinSesion2();
                 Navigator.of(context).pop();
                 Navigator.of(context).pop();
