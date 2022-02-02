@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:html';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:toast/toast.dart';
 import 'package:cryptoplaymateofficial/Modelo/cajas_modelo.dart';
@@ -38,6 +39,7 @@ class homeState extends State<home> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nombre = TextEditingController();
 
   String url = 'https://twitter.com/CryptoPlaymate';
   String urlD = 'https://discord.com';
@@ -97,11 +99,41 @@ class homeState extends State<home> {
   }
 
   Future _startUploadTask() async {
+
+    QuerySnapshot _myDoc = await FirebaseFirestore.instance.collection('Players').get();
+    List<DocumentSnapshot> _myDocCount = _myDoc.docs;
+
     AuthenticationHelper()
         .signUp(
         email: _emailController.text, password: _passwordController.text)
         .then((result) {
       if (result == null) {
+
+
+        String nombre = _nombre.text;
+        String correo = _emailController.text;
+
+
+        final collRef = FirebaseFirestore.instance.collection('Players').doc(correo);
+
+        //double costo = double.parse(_precio.text);
+        var now = DateTime.now();
+
+        collRef.set({
+          'correo': _emailController.text,
+          //'telefono': _tel.text,
+          'contraseña': _passwordController.text,
+          //'newid': docReference.documentID,
+          'foto': "",
+          'id': "123",
+          //'colonia': _colonia.text,
+          //'calle': _calle.text,
+          //'numerocasa': _num.text,
+          'nombre': "Crypto Playmate "+_myDocCount.toString(),
+          //'foto': url,
+          'miembrodesde': DateFormat("dd-MM-yyyy").format(now),
+        });
+
         Navigator.pop(context);
         Navigator.pop(context);
       } else {
