@@ -194,6 +194,12 @@ class homeState extends State<home> {
     }
 
   }
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+  signOut() async {
+    await auth.signOut();
+  }
+
   void sinSesion2(){
     final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -226,7 +232,9 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-                setState(() {
+
+                  signOut();
+
                   //comprasNotificaciones(context);
                   //comprasNotificaciones2(context);
                   //sesion = true;
