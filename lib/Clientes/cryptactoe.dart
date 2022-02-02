@@ -5,7 +5,7 @@ import 'package:cryptoplaymateofficial/authentication.dart';//k
 
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
-// ignore: camel_case_types
+// ignore: camel_case_type
 class cryptactoe extends StatefulWidget {
   const cryptactoe({Key? key}) : super(key: key);
 
