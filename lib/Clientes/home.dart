@@ -144,8 +144,8 @@ class homeState extends State<home> {
 
                 _startUploadTask();
                 //sinSesion2();
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
+                //Navigator.of(context).pop();
+                //Navigator.of(context).pop();
 
               },
               child: Text(
