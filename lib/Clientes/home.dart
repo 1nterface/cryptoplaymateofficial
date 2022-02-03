@@ -233,7 +233,8 @@ class homeState extends State<home> {
             DialogButton(
               onPressed: () {
 
-                signOut();
+                inicioSesion();
+                //signOut();
 
               },
               child: Text(
@@ -337,6 +338,21 @@ class homeState extends State<home> {
                       ]
                   ),
                 ),
+                SizedBox(width: 15),
+
+                InkWell(
+                  onTap:(){
+                    signOut();
+                  },
+                  child: Row(
+                      children: [
+                        Icon(Icons.exit_to_app, color: Colors.lightBlueAccent),
+                        //SizedBox(width:10),
+                        //Text('Contact us', style: TextStyle(color: Colors.white),),
+                      ]
+                  ),
+                ),
+
                 SizedBox(width: 15),
 
                 InkWell(
