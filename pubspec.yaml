@@ -32,7 +32,7 @@ dependencies:
   titled_navigation_bar: 3.5.0
   firebase_auth:
   firebase_core:
-  cloud_firestore: 2.5.3
+  cloud_firestore: 3.1.7
   firebase_database:
   image_picker: 0.8.4+1
   firebase_storage:
