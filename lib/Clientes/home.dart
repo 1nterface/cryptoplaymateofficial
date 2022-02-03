@@ -80,7 +80,6 @@ class homeState extends State<home> {
     );
   }
 
-
   Future<void> inicioSesion() async {
     // marked async
     AuthenticationHelper()
@@ -89,12 +88,13 @@ class homeState extends State<home> {
       if (result == null) {
 
         Navigator.of(context).pop();
+        Navigator.of(context).pushNamed('/cryptoactoe');
 
         //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0))));
-        Toast.show("¡Has iniciado sesion!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
+        //Toast.show("¡Has iniciado sesion!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
 
       } else {
-        Toast.show("Contraseña incorrecta!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
+        Toast.show("Incorrect password", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
       }
     });
   }
@@ -345,7 +345,7 @@ class homeState extends State<home> {
                   },
                   child: Row(
                       children: [
-                        Icon(FontAwesomeIcons.linkedinIn, color: Colors.pinkAccent),
+                        Icon(FontAwesomeIcons.linkedin, color: Colors.pinkAccent),
                         SizedBox(width:10),
                         Text('Contact us', style: TextStyle(color: Colors.white),),
                       ]
