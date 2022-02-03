@@ -176,7 +176,7 @@ class cryptactoeState extends State<cryptactoe> {
     });
   }
 
-  Widget tiempoDeEspera (BuildContext context){
+  Widget playerData (BuildContext context){
     final FirebaseAuth auth = FirebaseAuth.instance;
     final User? user = auth.currentUser;
     final correo = user!.email;
@@ -266,22 +266,7 @@ class cryptactoeState extends State<cryptactoe> {
                           child: Icon(Icons.person, size: 70, color: Colors.white38),
                         ),
                         SizedBox(width: 15),
-                        Row(
-                          children: [
-                            Container(
-                                width: 30,
-                                height: 30,
-                                child: Image.asset("images/opcex.png")
-                            ),
-                            SizedBox(height: 10),
-                            Column(children:[
-                              Text("Coins | Level", style: TextStyle(fontSize: 20, color: Colors.white38),),
-                              SizedBox(width: 5),
-                              Text("25    3", style: TextStyle(fontSize: 25, color: Colors.white),),
-                            ],
-                            ),
-                          ]
-                        ),
+                        playerData(context),
                       ],
                     ),
 
