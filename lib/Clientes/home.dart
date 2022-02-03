@@ -87,7 +87,7 @@ class homeState extends State<home> {
         .then((result) {
       if (result == null) {
 
-        Navigator.of(context).pop();
+        //Navigator.of(context).pop();
         Navigator.of(context).pushNamed('/cryptoactoe');
 
         //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0))));
