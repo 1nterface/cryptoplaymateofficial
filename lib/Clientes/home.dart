@@ -80,6 +80,7 @@ class homeState extends State<home> {
     );
   }
 
+
   Future<void> inicioSesion() async {
     // marked async
     AuthenticationHelper()
@@ -432,8 +433,30 @@ class homeState extends State<home> {
                       InkWell(
                         onTap: () async {
 
+                          bool sesion = false;
+
+                            final FirebaseAuth auth = FirebaseAuth.instance;
+                            if(FirebaseAuth.instance.currentUser?.email == null){
+                                               // not logged
+                              setState(() {
+                                sinSesion2();
+
+                                sesion = false;
+                                print("Sin pestania $sesion");
+                              });
+
+                            } else {
+                                // logged
+                              setState(() {
+                                Navigator.of(context).pushNamed("/cryptactoe");
+
+                                sesion = true;
+                                print("Con pestania $sesion");
+                              });
+                            }
+
                           //sinSesion2();
-                          Navigator.of(context).pushNamed("/cryptactoe");
+                          //Navigator.of(context).pushNamed("/cryptactoe");
                         },
                         child: Container(
                             decoration: const BoxDecoration(
@@ -455,10 +478,27 @@ class homeState extends State<home> {
                                   ElevatedButton(
                                     onPressed: () {
 
-                                      sinSesion2();
+                                      bool sesion = false;
 
-                                      //Navigator.of(context).pushNamed('/juegos_principal');
+                                      final FirebaseAuth auth = FirebaseAuth.instance;
+                                      if(FirebaseAuth.instance.currentUser?.email == null){
+                                        // not logged
+                                        setState(() {
+                                          sinSesion2();
 
+                                          sesion = false;
+                                          print("Sin pestania $sesion");
+                                        });
+
+                                      } else {
+                                        // logged
+                                        setState(() {
+                                          Navigator.of(context).pushNamed("/cryptactoe");
+
+                                          sesion = true;
+                                          print("Con pestania $sesion");
+                                        });
+                                      }
                                     },
                                     child: Text('Play'),
                                     style: ElevatedButton.styleFrom(shape: StadiumBorder()),
@@ -484,10 +524,27 @@ class homeState extends State<home> {
                                 children: [
                                   ElevatedButton(
                                     onPressed: () {
+                                      bool sesion = false;
 
-                                      //Navigator.of(context).pushNamed('/juegos_principal');
-                                      sinSesion2();
+                                      final FirebaseAuth auth = FirebaseAuth.instance;
+                                      if(FirebaseAuth.instance.currentUser?.email == null){
+                                        // not logged
+                                        setState(() {
+                                          sinSesion2();
 
+                                          sesion = false;
+                                          print("Sin pestania $sesion");
+                                        });
+
+                                      } else {
+                                        // logged
+                                        setState(() {
+                                          Navigator.of(context).pushNamed("/cryptactoe");
+
+                                          sesion = true;
+                                          print("Con pestania $sesion");
+                                        });
+                                      }
                                     },
                                     child: Text('Play'),
                                     style: ElevatedButton.styleFrom(shape: StadiumBorder()),
