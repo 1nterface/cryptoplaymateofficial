@@ -158,7 +158,6 @@ class cryptactoeState extends State<cryptactoe> {
     }
 
   }
-
   Future<void> inicioSesion() async {
     // marked async
     AuthenticationHelper()
@@ -175,6 +174,65 @@ class cryptactoeState extends State<cryptactoe> {
         Toast.show("Contraseña incorrecta!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
       }
     });
+  }
+
+  Widget tiempoDeEspera (BuildContext context){
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    final correo = user!.email;
+    return StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('Players').doc(correo.toString()).snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Text("Loading");
+          }
+          //reference.where("title", isEqualTo: 'UID').snapshots(),
+
+          else
+          {
+            Map<String, dynamic> userDocument = snapshot.data! as Map<String, dynamic>;
+
+            String coins = userDocument["coins"];
+            String level = userDocument["level"];
+
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Color(0xFF815FD5))
+                      ),
+                      child: Icon(Icons.person, size: 70, color: Colors.white38),
+                    ),
+                    SizedBox(width: 15),
+                    Row(
+                        children: [
+                          Container(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset("images/opcex.png")
+                          ),
+                          SizedBox(height: 10),
+                          Column(children:[
+                            Text("Coins | Level", style: TextStyle(fontSize: 20, color: Colors.white38),),
+                            SizedBox(width: 5),
+                            Text(documents["coins"]+"  "+documents["level"], style: TextStyle(fontSize: 25, color: Colors.white),),
+                          ],
+                          ),
+                        ]
+                    ),
+                  ],
+                ),
+
+              ],
+            );
+
+          }
+        }
+    );
   }
 
   @override
