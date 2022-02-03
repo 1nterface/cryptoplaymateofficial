@@ -192,9 +192,6 @@ class cryptactoeState extends State<cryptactoe> {
           {
             Map<String, dynamic> userDocument = snapshot.data! as Map<String, dynamic>;
 
-            String coins = userDocument["coins"];
-            String level = userDocument["level"];
-
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -219,7 +216,7 @@ class cryptactoeState extends State<cryptactoe> {
                           Column(children:[
                             Text("Coins | Level", style: TextStyle(fontSize: 20, color: Colors.white38),),
                             SizedBox(width: 5),
-                            Text(userDocument["coins"]+"  "+userDocument["level"], style: TextStyle(fontSize: 25, color: Colors.white),),
+                            Text(userDocument["coins"].toString()+"  "+userDocument["level"].toString(), style: TextStyle(fontSize: 25, color: Colors.white),),
                           ],
                           ),
                         ]
