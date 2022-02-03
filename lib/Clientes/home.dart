@@ -88,7 +88,7 @@ class homeState extends State<home> {
       if (result == null) {
 
         //Navigator.of(context).pop();
-        Navigator.of(context).pushNamed('/cryptoactoe');
+        Navigator.of(context).pushNamed('/cryptactoe');
 
         //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home(cajas_modelo("","","",0,0,0,0,0,"","","","","",0))));
         //Toast.show("¡Has iniciado sesion!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.CENTER);
